@@ -1,0 +1,19 @@
+name: caller-esteira-package-nuspec
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+permissions:
+  contents: write
+  packages: write
+
+jobs:
+  call-esteira-package-nuspec:
+    uses: projeto-devops-gabriela/esteiras-devops/.github/workflows/esteira-package-nuspec.yaml@main
+    with:
+      build-configuration: Release
+    secrets: inherit
